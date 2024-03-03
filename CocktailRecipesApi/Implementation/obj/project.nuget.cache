@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lQfQLoYfp1BRAylYqkGPrJEcWHBQlQWP4hdG1uJkKeBOI5y7Un8zlc2a96sfb3x0CLd8oOaWVaEiu5Kl5QQFkA==",
+  "dgSpecHash": "UfquptJ8tLHSsA6H+KL5nWz7BTEGIFVcvzr9R9YKNUzG2PXbn7gd+2tnw5FUGJA7fADScGBEGaQ/hIowEBs2IQ==",
   "success": true,
   "projectFilePath": "D:\\Cocktails app\\cocktail-recipes-app\\CocktailRecipesApi\\Implementation\\Implementation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\neman\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\neman\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\neman\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\neman\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
