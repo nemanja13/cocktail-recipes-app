@@ -6,14 +6,15 @@ export interface ICocktailRecipe {
     name: string;
     image: string;
     instructions: string;
+    ingredients: string;
     type: string;
     measure: string;
 }
 
 export interface ICocktailRecipeFilterForm {
     keyword: string | null;
-    typeId: number | null;
-    orderBy: number | null;
+    typeId?: number | null;
+    orderBy?: number | null;
 }
 
 export interface ICocktailRecipeFilterRequest extends ICocktailRecipeFilterForm {

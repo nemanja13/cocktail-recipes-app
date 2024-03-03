@@ -47,6 +47,6 @@ ul{
     text-decoration: none;
 }
 
-.tm-gallery-title {
+.tm-gallery-item, .pointer {
     cursor: pointer;
 }

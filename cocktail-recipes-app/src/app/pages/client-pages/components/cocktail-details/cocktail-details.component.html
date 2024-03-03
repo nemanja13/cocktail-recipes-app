@@ -1,1 +1,11 @@
-<p>cocktail-details works!</p>
+<div class="row" *ngIf="cocktail">
+    <div class="col-lg-6 col-md-4 col-sm-6 col-12">
+        <img [src]="cocktail.image" alt="{{cocktail.name}}">
+    </div>
+    <div class="col-lg-6 col-md-4 col-sm-6 col-12">
+        <h1>{{cocktail.name}}</h1>
+        <p>Ingredients: {{cocktail.ingredients}}</p>
+        <p>Instructions: {{cocktail.instructions}}</p>
+        <p>Measure: {{cocktail.measure}}</p>
+    </div>
+</div>
