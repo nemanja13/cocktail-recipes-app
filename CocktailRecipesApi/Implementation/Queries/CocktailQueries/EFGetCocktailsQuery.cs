@@ -35,6 +35,9 @@ namespace Implementation.Queries.CocktailQueries
                 .Include(x => x.Type)
                 .AsQueryable();
 
+            if (!string.IsNullOrEmpty(search.Keyword) && !string.IsNullOrWhiteSpace(search.Keyword))
+                query = query.Where(x => x.Name.ToLower().Contains(search.Keyword.ToLower()));
+
             if (search.TypeId.HasValue)
                 query = query.Where(x => x.TypeId == search.TypeId);
 
