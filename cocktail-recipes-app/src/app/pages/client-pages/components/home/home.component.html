@@ -1,0 +1,50 @@
+
+<main>
+    <header class="row tm-welcome-section">
+        <h2 class="col-12 text-center tm-section-title">Welcome to Cocktail Recipes App</h2>
+    </header>
+
+    
+    <form [formGroup]="filterForm" autocomplete="off">
+        <div class="row">
+            <div class="tm-gallery-page">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                    <input type="text" formControlName="keyword" placeholder="Search"/>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                    <select formControlName="typeId">
+                        <option [value]="null" disabled selected>Search by type</option>
+                        <option *ngFor="let option of dropdownData.Types" [value]="option.id">{{option.name}}</option>
+                    </select>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                    <select formControlName="orderBy">
+                        <option [value]="null" disabled selected>Sort</option>
+                        <option *ngFor="let option of dropdownData.OrderByOptions" [value]="option.id">{{option.name}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <ng-container *ngIf="cocktails && cocktails.length">
+        <div class="row tm-gallery">
+            <div class="tm-gallery-page">
+                <article *ngFor="let cocktail of cocktails" class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                    <figure>
+                        <img [src]="cocktail.image" alt="Image" class="img-fluid tm-gallery-img" />
+                        <figcaption>
+                            <h4 class="tm-gallery-title" (click)="showDetails(cocktail.id)">{{cocktail.name}}</h4>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+        </div>
+    </ng-container>
+
+    <section>
+        <ul id="pagination" *ngIf="response">
+            <li *ngFor="let link of makeArray(response.lastPage)let i = index"><a class="pagination_links" [ngClass]="{'active': response.currentPage === i+1}" (click)="changePage(i+1)" href="#">{{i+1}}</a></li>
+        </ul>
+    </section>
+</main>

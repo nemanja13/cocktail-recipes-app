@@ -1,18 +1,20 @@
-export const ORDER_BY_OPTIONS = [
+import { IOption } from "src/app/shared/interfaces/i-option";
+
+export const ORDER_BY_OPTIONS: IOption[] = [
     {
         id: 0,
-        title: "Name ascending"
+        name: "Name ascending"
     },
     {
         id: 1,
-        title: "Name descending"
+        name: "Name descending"
     },
     {
         id: 2,
-        title: "Newest"
+        name: "Newest"
     },
     {
         id: 3,
-        title: "Oldest"
+        name: "Oldest"
     }
 ];

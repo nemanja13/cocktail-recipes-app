@@ -3,6 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { config } from '../../config/global';
+import { IResponse } from '../interfaces/i-response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class ApiService<T> {
 
   protected baseUrl = config.baseApiUrl.SERVER;
 
-  getAll() : Observable<T[]>{
-    return this.http.get<T[]>(`${ this.baseUrl + this.url}`).pipe(
+  getAll() : Observable<IResponse<T>>{
+    return this.http.get<IResponse<T>>(`${ this.baseUrl + this.url}`).pipe(
       catchError(error => {
         return throwError(error.error);
       })
@@ -29,8 +30,8 @@ export class ApiService<T> {
     );
   }
 
-  getWithParams(params: any){
-    return this.http.get<T>(`${ this.baseUrl + this.url }`, { params: params } )
+  getWithParams(params: any): Observable<IResponse<T>>{
+    return this.http.get<IResponse<T>>(`${ this.baseUrl + this.url }`, { params: params } )
     .pipe(
       catchError(error => {
         return throwError(error.error);
