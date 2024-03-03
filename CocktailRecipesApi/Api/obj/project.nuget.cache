@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "9p4bW3PSsXhZ2FaUm7vPsuRjXj3+htI6p6CxHrkDvPTV0BHP8xMyUTKyTVOwqS6hDABoA7s3f100pGBR3GN+WA==",
+  "dgSpecHash": "LhAlcrVu5ifPF9eX1iBriPmF8HcsP0e5gMVT/48Iw8kQ/EbgsRQrTTgxV2GmGMSXr+lKu5g/taXgz1I3Xz00Qg==",
   "success": true,
   "projectFilePath": "D:\\Cocktails app\\cocktail-recipes-app\\CocktailRecipesApi\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\neman\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\neman\\.nuget\\packages\\bogus\\35.4.1\\bogus.35.4.1.nupkg.sha512",
     "C:\\Users\\neman\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\neman\\.nuget\\packages\\microsoft.aspnet.cors\\5.3.0\\microsoft.aspnet.cors.5.3.0.nupkg.sha512",
     "C:\\Users\\neman\\.nuget\\packages\\microsoft.aspnet.webapi.client\\6.0.0\\microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
