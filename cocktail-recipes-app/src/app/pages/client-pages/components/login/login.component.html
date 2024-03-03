@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-12">
+        <div id="login-div">
+            <form id="login-form" [formGroup]="loginForm" (ngSubmit)="submitLogin()" autocomplete="off">
+                <input type="text" formControlName="username" name="username_log" id="username_log" placeholder="Username"/>
+                <input type="password" formControlName="password" name="password_log" id="password_log" placeholder="Password"/>
+                <button type="submit" class="pointer" id="login">Log in</button>
+            </form>
+        </div>
+    </div>
+</div>
