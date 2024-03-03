@@ -21,13 +21,13 @@ namespace Api.Core.Jwt
             _mapper = mapper;
         }
 
-        public string MakeToken(string email, string password)
+        public string MakeToken(string username, string password)
         {
 
             var passwordMD5 = password.MD5Encrypt();
 
             var user = _context.Users
-                .FirstOrDefault(x => x.Username == email && x.Password == passwordMD5);
+                .FirstOrDefault(x => x.Username == username && x.Password == passwordMD5);
 
             if (user == null)
             {
