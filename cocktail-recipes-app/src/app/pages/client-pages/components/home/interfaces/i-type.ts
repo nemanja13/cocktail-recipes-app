@@ -1,4 +1,4 @@
-export interface IType {
-    id: number;
-    name: string;
+import { IOption } from "src/app/shared/interfaces/i-option";
+
+export interface IType extends IOption {
 }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using Microsoft.EntityFrameworkCore;
 
 namespace Implementation.Queries.RecipeQueries
 {
@@ -30,7 +31,12 @@ namespace Implementation.Queries.RecipeQueries
 
         public PagedResponse<RecipeDto> Execute(SearchRecipeDto search)
         {
-            var query = _context.CocktailRecipes.AsQueryable();
+            var query = _context.CocktailRecipes
+                .Include(x => x.Type)
+                .Include(x => x.Measure)
+                .Include(x => x.CocktailRecipeIngredients)
+                .ThenInclude(x => x.Ingredient)
+                .AsQueryable();
 
             if (!string.IsNullOrEmpty(search.Keyword) && !string.IsNullOrWhiteSpace(search.Keyword))
                 query = query.Where(x => x.Name.ToLower().Contains(search.Keyword.ToLower()));

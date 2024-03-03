@@ -1,0 +1,26 @@
+.form-wrapper {
+    padding: 20px;
+}
+
+.form-title {
+    margin: 10px;
+}
+
+.label-title {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+textarea {
+    resize: none;
+}
+
+.checkbox {
+    width: auto;
+}

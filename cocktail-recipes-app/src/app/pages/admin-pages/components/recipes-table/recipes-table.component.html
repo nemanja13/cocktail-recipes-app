@@ -1,0 +1,41 @@
+<main class="content">
+    <div class="recipes-table-header">
+        <h1>Recipes</h1>
+        <div>
+            <button class="add button pointer" (click)="addEditRecipe()">Add</button>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <td>Image</td>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Measure</td>
+            <td>Ingredients</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        <ng-container *ngIf="recipes && recipes.length; else noRecipes">
+            <tr *ngFor="let recipe of recipes">
+                <td><img class="smallImg" [src]="recipe.image" /></td>
+                <td>{{recipe.name}}</td>
+                <td>{{recipe.type}}</td>
+                <td>{{recipe.measure}}</td>
+                <td>{{recipe.ingredients}}</td>
+                <td><i class="bi bi-pencil-square pointer edit-recipe" (click)="addEditRecipe(recipe.id)"></i></td>
+                <td><i class="bi bi-trash pointer delete-recipe" (click)="deleteRecipe(recipe.id)"></i></td>
+            </tr>
+        </ng-container>
+        <ng-template #noRecipes>
+            <td colspan="7">No recipes</td>
+        </ng-template>
+    </table>
+</main>
+
+<section>
+    <ul id="pagination" *ngIf="response">
+        <li *ngFor="let link of createArray(response.lastPage)let i = index"><span class="pagination_links pointer"
+                [ngClass]="{'active': response.currentPage === i+1}" (click)="changePage(i+1)">{{i+1}}</span></li>
+    </ul>
+</section>

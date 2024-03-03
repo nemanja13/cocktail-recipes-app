@@ -35,7 +35,7 @@ export class AuthService {
           alertify.error(error.errors[0].ErrorMessage);
           return throwError(error.errors[0].ErrorMessage);
         }
-        alertify.error('You are not authorized. Check your email and password.');
+        alertify.error('You are not authorized. Check your username and password.');
         return throwError("Not Authorized");
       })
     );

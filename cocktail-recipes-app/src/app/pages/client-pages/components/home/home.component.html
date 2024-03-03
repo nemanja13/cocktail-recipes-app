@@ -13,13 +13,13 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                     <select formControlName="typeId">
-                        <option [value]="null" disabled selected>Search by type</option>
+                        <option [value]="null" selected>Search by type</option>
                         <option *ngFor="let option of dropdownData.Types" [value]="option.id">{{option.name}}</option>
                     </select>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                     <select formControlName="orderBy">
-                        <option [value]="null" disabled selected>Sort</option>
+                        <option [value]="null" selected>Sort</option>
                         <option *ngFor="let option of dropdownData.OrderByOptions" [value]="option.id">{{option.name}}</option>
                     </select>
                 </div>
@@ -30,11 +30,11 @@
     <ng-container *ngIf="cocktails && cocktails.length">
         <div class="row tm-gallery">
             <div class="tm-gallery-page">
-                <article *ngFor="let cocktail of cocktails" class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+                <article *ngFor="let cocktail of cocktails" (click)="showDetails(cocktail.id)" class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                     <figure>
                         <img [src]="cocktail.image" alt="Image" class="img-fluid tm-gallery-img" />
                         <figcaption>
-                            <h4 class="tm-gallery-title" (click)="showDetails(cocktail.id)">{{cocktail.name}}</h4>
+                            <h4 class="tm-gallery-title">{{cocktail.name}}</h4>
                         </figcaption>
                     </figure>
                 </article>

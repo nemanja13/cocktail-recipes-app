@@ -1,7 +1,7 @@
 html { scroll-behavior: smooth; }
 
 textarea, input, select{
-    width: 95%;
+    width: 100%;
     padding: 12px 2.5%;
     border: 1px solid rgb(221, 221, 221);
     margin-bottom: 15px;
@@ -47,6 +47,6 @@ ul{
     text-decoration: none;
 }
 
-.tm-gallery-title {
+.tm-gallery-item, .pointer {
     cursor: pointer;
 }

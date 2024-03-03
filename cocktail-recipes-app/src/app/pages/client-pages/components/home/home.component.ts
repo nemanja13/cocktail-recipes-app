@@ -33,12 +33,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     Types: [],
     OrderByOptions: ORDER_BY_OPTIONS
   };
+  private pageInit: number = 1;
+  private perPageInit: number = 12;
   public dataToSend: ICocktailRecipeFilterRequest = {
-    page: 1,
-    perPage: 12,
-    keyword: null,
-    typeId: null,
-    orderBy: null
+    page: this.pageInit,
+    perPage: this.perPageInit,
+    keyword: ""
   };
 
   ngOnInit(): void {
@@ -48,9 +48,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getCocktailRecipes(): void {
-    this.dataToSend.keyword = this.filterForm.getSafe(x => x.keyword).value;
-    this.dataToSend.typeId = +this.filterForm.getSafe(x => x.typeId).value;
-    this.dataToSend.orderBy = +this.filterForm.getSafe(x => x.orderBy).value;
+    const keyword = this.filterForm.getSafe(x => x.keyword).value;
+    const typeId = this.filterForm.getSafe(x => x.typeId).value;
+    const orderBy = this.filterForm.getSafe(x => x.orderBy).value;
+    this.dataToSend.keyword = keyword ?? "";
+    if(typeId && typeId != "null") {
+      this.dataToSend.typeId = +typeId;
+    } else {
+      delete this.dataToSend.typeId;
+    }
+    if(orderBy && orderBy != "null") {
+      this.dataToSend.orderBy = +orderBy;
+    } else {
+      delete this.dataToSend.orderBy;
+    }
     this.subscription.add(
       this.requestsService.getCocktailRecipesWithParams(this.dataToSend).subscribe(
         (response: IResponse<ICocktailRecipe>) => {
@@ -94,7 +105,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription.add(
       this.filterForm.valueChanges.pipe(debounceTime(500)).subscribe({
         next: data => {
-          console.log(data)
+          this.dataToSend.page = this.pageInit;
+          this.dataToSend.perPage = this.perPageInit;
           this.getCocktailRecipes();
         }
       })
