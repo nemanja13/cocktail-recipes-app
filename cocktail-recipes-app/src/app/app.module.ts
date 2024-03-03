@@ -23,6 +23,11 @@ const routes: Routes = [
       {
         path: "",
         loadChildren: () => import("./pages/client-pages/client-pages.module").then(m => m.ClientPagesModule)
+      },
+      {
+        path: "admin",
+        loadChildren: () => import("./pages/admin-pages/admin-pages.module").then(m => m.AdminPagesModule),
+        canActivate: [AuthGuard]
       }
     ]
   },

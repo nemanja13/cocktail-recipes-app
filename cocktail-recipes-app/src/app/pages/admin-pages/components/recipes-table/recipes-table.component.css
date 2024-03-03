@@ -1,0 +1,13 @@
+.smallImg{
+    width: 80px;
+}
+
+.content {
+    margin: 10px;
+}
+
+.recipes-table-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}

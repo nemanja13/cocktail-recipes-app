@@ -12,7 +12,9 @@
                 <nav class="col-md-6 col-12 tm-nav">
                     <ul class="tm-nav-ul">
                         <li class="tm-nav-li"><a routerLink="/" class="tm-nav-link">Home</a></li>
-                        <li class="tm-nav-li"><a routerLink="/login" class="tm-nav-link">Login</a></li>
+                        <li *ngIf="isLoggedIn" class="tm-nav-li"><a routerLink="/admin" class="tm-nav-link">Recipes</a></li>
+                        <li *ngIf="!isLoggedIn" class="tm-nav-li"><a routerLink="/login" class="tm-nav-link">Login</a></li>
+                        <li *ngIf="isLoggedIn" class="tm-nav-li"><a routerLink="#" (click)="logout()" class="tm-nav-link">Log out</a></li>
                     </ul>
                 </nav>	
             </div>

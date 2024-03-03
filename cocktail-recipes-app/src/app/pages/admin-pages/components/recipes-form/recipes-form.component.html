@@ -1,0 +1,59 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="form" autocomplete="off">
+    <div class="form-wrapper">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <h1 class="form-title">{{isEdit ? 'Edit' : 'Add'}} Recipe</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <input type="text" formControlName="name" name="name" id="name" placeholder="Name" />
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <input type="text" formControlName="image" name="image" id="image" placeholder="Image Link" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <textarea id="instructions" formControlName="instructions" cols="30" rows="10"
+                    placeholder="Instructions"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <ng-container *ngIf="dropdownData.Types && dropdownData.Types.length">
+                    <select id="category_id" formControlName="typeId">
+                        <option [value]="0">Select Type</option>
+                        <option *ngFor="let option of dropdownData.Types" [value]="option.id">{{option.name}}</option>
+                    </select>
+                </ng-container>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <ng-container *ngIf="dropdownData.Measures && dropdownData.Measures.length">
+                    <select id="brand_id" formControlName="measureId">
+                        <option [value]="0">Select Measure</option>
+                        <option *ngFor="let option of dropdownData.Measures" [value]="option.id">{{option.name}}</option>
+                    </select>
+                </ng-container>
+            </div>
+        </div>
+        
+        <div class="row">
+            <ng-container *ngIf="dropdownData.Ingredients && dropdownData.Ingredients.length && form.get('ingredientIds')" formArrayName="ingredientIds">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <label class="label-title">Ingredients:</label>
+                </div>
+                <ng-container *ngFor="let option of dropdownData.Ingredients; let i=index">
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <span class="flex-between">
+                            <label>{{option.name}}</label>
+                            <input formControlName="{{i}}" type="checkbox" class="checkbox" value="{{option.id}}">
+                        </span>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <button type="submit" class="pointer button">{{isEdit ? 'Edit' : 'Add'}}</button>
+    </div>
+</form>

@@ -1,5 +1,6 @@
 import { IOption } from "src/app/shared/interfaces/i-option";
 import { IType } from "./i-type";
+import { IBaseFilterRequest } from "src/app/shared/interfaces/i-base-filter-request";
 
 export interface ICocktailRecipe {
     id: number;
@@ -17,9 +18,7 @@ export interface ICocktailRecipeFilterForm {
     orderBy?: number | null;
 }
 
-export interface ICocktailRecipeFilterRequest extends ICocktailRecipeFilterForm {
-    page: number;
-    perPage: number;
+export interface ICocktailRecipeFilterRequest extends ICocktailRecipeFilterForm, IBaseFilterRequest {
 }
 
 export interface ICocktailRecipeDropdownData {
