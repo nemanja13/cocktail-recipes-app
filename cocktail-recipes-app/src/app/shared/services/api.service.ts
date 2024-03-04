@@ -14,7 +14,7 @@ export class ApiService<T> {
 
   protected baseUrl = config.baseApiUrl.SERVER;
 
-  getAll() : Observable<IResponse<T>>{
+  getAll(): Observable<IResponse<T>> {
     return this.http.get<IResponse<T>>(`${ this.baseUrl + this.url}`).pipe(
       catchError(error => {
         return throwError(error.error);
@@ -22,7 +22,7 @@ export class ApiService<T> {
     );
   }
 
-  getWithData(id: number) : Observable<T>{
+  getWithData(id: number): Observable<T> {
     return this.http.get<T>(`${ this.baseUrl + this.url + "/"+ id }`).pipe(
       catchError(error => {
         return throwError(error.error);
@@ -30,7 +30,7 @@ export class ApiService<T> {
     );
   }
 
-  getWithParams(params: any): Observable<IResponse<T>>{
+  getWithParams(params: any): Observable<IResponse<T>> {
     return this.http.get<IResponse<T>>(`${ this.baseUrl + this.url }`, { params: params } )
     .pipe(
       catchError(error => {
@@ -39,7 +39,7 @@ export class ApiService<T> {
     );
   }
 
-  get(id: number) : Observable<T>{
+  get(id: number): Observable<T> {
     return this.http.get<T>(`${ this.baseUrl + this.url + "/"+ id }`).pipe(
       catchError(error => {
         return throwError(error.error);
@@ -47,7 +47,7 @@ export class ApiService<T> {
     );
   }
 
-  update(id : any, obj : any){ 
+  update(id : any, obj : any): Observable<unknown> { 
     let objToSend = obj;
     let url = this.baseUrl + this.url;
     if(id){
@@ -60,7 +60,7 @@ export class ApiService<T> {
     );
   }
 
-  delete(id : number){
+  delete(id : number): Observable<unknown> {
     return this.http.delete(`${ this.baseUrl + this.url + "/" + id}`).pipe(
       catchError(error => {
         return throwError(error.error);
@@ -68,7 +68,7 @@ export class ApiService<T> {
     );
   }
 
-  create(obj : any){
+  create(obj : any): Observable<unknown> {
     let objToSend = obj;
     return this.http.post(`${ this.baseUrl + this.url }`, objToSend).pipe(
       catchError(error => {

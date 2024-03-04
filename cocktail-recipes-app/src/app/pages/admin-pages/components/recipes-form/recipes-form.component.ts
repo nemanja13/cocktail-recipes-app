@@ -78,8 +78,8 @@ export class RecipesFormComponent implements OnInit, OnDestroy {
       name: this.formBuilder.control('', [Validators.required]),
       image: this.formBuilder.control(''),
       instructions: this.formBuilder.control('', [Validators.required]),
-      typeId: this.formBuilder.control(0, [Validators.required, Validators.min(1)]),
-      measureId: this.formBuilder.control(0, [Validators.required, Validators.min(1)]),
+      typeId: this.formBuilder.control(null, [Validators.required, Validators.min(1)]),
+      measureId: this.formBuilder.control(null, [Validators.required, Validators.min(1)]),
       ingredientIds: this.formBuilder.array([], [Validators.required])
     });
   }
@@ -154,8 +154,6 @@ export class RecipesFormComponent implements OnInit, OnDestroy {
     }
     
     let dataToSend = this.prepareDataToSend();
-
-    console.log(dataToSend);
     
     if(this.isEdit && this.id){
       this.requestsService.update(this.id, dataToSend).subscribe({

@@ -11,7 +11,7 @@ export class TokenService {
 
   private jwtService = new JwtHelperService();
 
-  saveToken(data: IAuthResponse){
+  saveToken(data: IAuthResponse): void {
     localStorage.setItem("token", JSON.stringify(data));
   }
 
@@ -22,7 +22,7 @@ export class TokenService {
     return localStorage.getItem("token") != null && localStorage.getItem("token") != "";
   }
 
-  getToken() {
+  getToken(): string {
     let token = null;
     try {
       token = JSON.parse(localStorage.getItem("token") ?? "");
@@ -38,7 +38,7 @@ export class TokenService {
     localStorage.removeItem("token");
   }
 
-  getTokenData() {
+  getTokenData(): any {
     let token = null;
     try {
       token = JSON.parse(localStorage.getItem("token") ?? "");

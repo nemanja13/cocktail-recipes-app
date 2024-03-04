@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     private tokenService: TokenService
   ){}
 
-  canActivate(){
+  canActivate(): boolean {
     if(this.tokenService.hasToken() && !this.jwtHelper.isTokenExpired(this.tokenService.getToken())){
       return true;
     }

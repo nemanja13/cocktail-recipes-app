@@ -27,7 +27,7 @@
         </div>
     </form>
 
-    <ng-container *ngIf="cocktails && cocktails.length">
+    <ng-container *ngIf="cocktails && cocktails.length; else noCocktails">
         <div class="row tm-gallery">
             <div class="tm-gallery-page">
                 <article *ngFor="let cocktail of cocktails" (click)="showDetails(cocktail.id)" class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
@@ -41,6 +41,19 @@
             </div>
         </div>
     </ng-container>
+    <ng-template #noCocktails>
+        <div class="row tm-gallery">
+            <div class="tm-gallery-page">
+                <article class="col-lg-12 col-md-12 col-sm-12 col-12 tm-gallery-item">
+                    <figure>
+                        <figcaption>
+                            <h4 class="tm-gallery-title">There are no cocktails</h4>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div>
+        </div>
+    </ng-template>
 
     <section>
         <ul id="pagination" *ngIf="response">

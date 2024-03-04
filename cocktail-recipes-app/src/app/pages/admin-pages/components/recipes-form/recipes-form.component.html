@@ -23,7 +23,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <ng-container *ngIf="dropdownData.Types && dropdownData.Types.length">
                     <select id="category_id" formControlName="typeId">
-                        <option [value]="0">Select Type</option>
+                        <option [value]="null">Select Type</option>
                         <option *ngFor="let option of dropdownData.Types" [value]="option.id">{{option.name}}</option>
                     </select>
                 </ng-container>
@@ -31,7 +31,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <ng-container *ngIf="dropdownData.Measures && dropdownData.Measures.length">
                     <select id="brand_id" formControlName="measureId">
-                        <option [value]="0">Select Measure</option>
+                        <option [value]="null">Select Measure</option>
                         <option *ngFor="let option of dropdownData.Measures" [value]="option.id">{{option.name}}</option>
                     </select>
                 </ng-container>
