@@ -6,7 +6,7 @@ import { config } from 'src/app/config/global';
 import { IAuthResponse } from '../interfaces/i-auth-response';
 import { TokenService } from './token.service';
 import { catchError, tap } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { IAuthRequest } from '../interfaces/i-auth-request';
 declare let alertify: any;
 
@@ -21,7 +21,7 @@ export class AuthService {
     private router: Router
   ) { }
 
-  login(credentials: IAuthRequest){
+  login(credentials: IAuthRequest): Observable<any> {
     return this.http.post(config.baseApiUrl.SERVER + apiPaths.auth.login, credentials).pipe(
       tap(data => {
         this.tokenService.saveToken(data as IAuthResponse);
@@ -53,7 +53,7 @@ export class AuthService {
     });
   }
 
-  getActor() {
+  getActor(): any {
     return JSON.parse(localStorage.getItem('actor') ?? "");
   }
 }
